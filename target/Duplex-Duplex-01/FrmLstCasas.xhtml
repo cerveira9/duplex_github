@@ -6,28 +6,46 @@ and open the template in the editor.
 -->
 <html
     xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Lista de imóveis</title>
+        <title>SELECIONE O DUPLEX</title>
+        <h:outputStylesheet library="css" name="index-style.css" />
     </h:head>
     <h:body>
+        <header>
+            <h1>SELECIONE O DUPLEX</h1>
+        </header>
+
+
+
         <h:form>
-            <p:commandButton value="Nova Casa" action="#{guiCasa.novaCasa()}" ajax="false"/>
-            <p:dataTable id="tblCasas" value="#{guiCasa.casas}" var="c">
-                <p:ajax event="sort"/>
-                <p:column headerText="Identificação" sortBy="#{c.id}">
-                    <p:outputLabel value="#{c.id}"/>
-                </p:column>
-                <p:column headerText="Identificação" sortBy="#{c.nomeCasa}">
-                    <p:outputLabel value="#{c.nomeCasa}"/>
-                </p:column>
-                <p:column headerText="-" >
-                    <p:commandButton value="Editar" action="#{guiCasa.editarCasa(c)}" ajax="false"/>
-                    <p:commandButton value="Excluir" action="#{guiCasa.excluirCasa(c)}" ajax="false"/>
-                </p:column>
-            </p:dataTable>
+            <!-- <p:commandButton value="Nova Casa" action="#{guiCasa.novaCasa()}" ajax="false"/> -->
+
+            <div class="container">
+                <p:dataTable id="tblCasas" value="#{guiCasa.casas}" var="c">
+
+
+                    <p:column headerText="Duplex" sortBy="#{c.nomeCasa}">
+                        <p:outputLabel value="#{c.nomeCasa}"/>
+                    </p:column> 
+
+                    <p:column headerText="Opções" >
+                        <p:commandButton value="Detalhes"  ajax="false"/>
+                        <p:commandButton value="Editar" action="#{guiCasa.editarCasa(c)}" ajax="false"/>
+                        <p:commandButton value="Excluir" action="#{guiCasa.excluirCasa(c)}" ajax="false"/>
+                    </p:column>
+
+                </p:dataTable>
+                <div style="margin-top: 20px">
+                    <h:commandButton  action="#{guiCasa.novaCasa()}" value="Nova Casa" />
+                </div>
+
+            </div>
+
+
+
         </h:form>
     </h:body>
 </html>
