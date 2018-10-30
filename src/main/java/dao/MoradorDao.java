@@ -6,6 +6,7 @@
 package dao;
 
 import java.util.List;
+import java.util.Objects;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,6 +17,7 @@ import model.Morador;
  *
  * @author fernandocerveira
  */
+
 @Stateless
 public class MoradorDao {
     @PersistenceContext
@@ -26,9 +28,15 @@ public class MoradorDao {
         Query q = em.createQuery("select m from Morador m");
         return q.getResultList();
     }
+    
+    public List<Morador> getListCasa(Long id){
+        String s = Objects.toString(id);
+        Query q = em.createQuery("select m from Morador m inner join Casa c on m.idCasa = c." + s);
+        return q.getResultList();
+    }
 
-    public void gravar(Morador object, boolean edit) {
-        if (edit == false) {
+    public void gravar(Morador object, boolean inc) {
+        if (inc == true) {
             em.persist(object);
         } else {
             em.merge(object);

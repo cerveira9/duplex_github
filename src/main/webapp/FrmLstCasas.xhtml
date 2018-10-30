@@ -32,13 +32,13 @@ and open the template in the editor.
                     </p:column> 
 
                     <p:column headerText="Opções" >
-                        <p:commandButton value="Detalhes"  ajax="false"/>
+                        <p:commandButton value="Detalhes" action="#{guiCasa.DetalheCasa(c)}" ajax="false"/>
                         <p:commandButton value="Editar" action="#{guiCasa.editarCasa(c)}" ajax="false"/>
                         <p:commandButton value="Excluir" action="#{guiCasa.excluirCasa(c)}" ajax="false"/>
                     </p:column>
 
                 </p:dataTable>
-                <div style="margin-top: 20px">
+                <div class="botao-nova-casa">
                     <h:commandButton  action="#{guiCasa.novaCasa()}" value="Nova Casa" />
                 </div>
 

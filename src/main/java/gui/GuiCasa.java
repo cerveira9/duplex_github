@@ -6,6 +6,7 @@
 package gui;
 
 import dao.CasaDao;
+import dao.MoradorDao;
 import java.io.Console;
 import java.io.Serializable;
 import static java.lang.System.console;
@@ -27,8 +28,10 @@ public class GuiCasa implements Serializable{
     
     @EJB
     CasaDao daoCasa;
+    MoradorDao daoMorador;
+    
     private Morador morador;
-    private List<Morador> moraderes;
+    private List<Morador> moradores;
     private Casa casa;
     private List<Casa> casas;
     private boolean incluindo;
@@ -42,11 +45,11 @@ public class GuiCasa implements Serializable{
     }
 
     public List<Morador> getMoraderes() {
-        return moraderes;
+        return moradores;
     }
     
     public void setMoraderes(List<Morador> moraderes) {
-        this.moraderes = moraderes;
+        this.moradores = moraderes;
     }
     
     public List<Casa> getCasas(){
@@ -100,5 +103,24 @@ public class GuiCasa implements Serializable{
         daoCasa.excluir(c);
         casas = daoCasa.getList(); 
         return "FrmLstCasa";
+    }
+    
+    public String DetalheCasa(Casa c){
+        this.casa = c;
+        moradores = daoCasa.getListMoradores(c.getId());
+        return "FrmDetCasa";
+    }
+    
+    public String addMorador(){
+        morador = new Morador();
+        incluindo = true;
+        morador.setIdCasa(casa.getId());
+        return "FrmAddMorador";
+    }
+        
+    public String gravarMorador(){
+        daoMorador.gravar(morador, incluindo);
+        moradores = daoCasa.getListMoradores(casa.getId());
+        return "FrmDetCasa";
     }
 }

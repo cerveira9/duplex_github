@@ -38,6 +38,7 @@ public class Morador implements Serializable {
     private List<Aluguel> aluguel;
     @OneToOne
     private Saida saida;
+    private Long idSaida;
 
     public Long getId() {
         return id;
@@ -46,6 +47,24 @@ public class Morador implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Long getIdCasa() {
+        return idCasa;
+    }
+
+    public void setIdCasa(Long idCasa) {
+        this.idCasa = idCasa;
+    }
+
+    public Long getIdSaida() {
+        return idSaida;
+    }
+
+    public void setIdSaida(Long idSaida) {
+        this.idSaida = idSaida;
+    }
+    
+    
 
     public Saida getSaida() {
         return saida;

@@ -6,11 +6,13 @@
 package dao;
 
 import java.util.List;
+import java.util.Objects;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import model.Casa;
+import model.Morador;
 
 /**
  *
@@ -24,6 +26,12 @@ public class CasaDao {
 
     public List<Casa> getList() {
         Query q = em.createQuery("select c from Casa c");
+        return q.getResultList();
+    }
+    
+    public List<Morador> getListMoradores(Long id){
+        String s = Objects.toString(id);
+        Query q = em.createQuery("select m from Morador m where m.idCasa = "+s);
         return q.getResultList();
     }
 
