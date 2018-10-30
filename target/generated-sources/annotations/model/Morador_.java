@@ -8,7 +8,7 @@ import model.Aluguel;
 import model.ContaDeAgua;
 import model.Saida;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-10-29T12:06:43")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-10-30T16:35:56")
 @StaticMetamodel(Morador.class)
 public class Morador_ { 
 
@@ -23,5 +23,6 @@ public class Morador_ {
     public static volatile SingularAttribute<Morador, Long> id;
     public static volatile SingularAttribute<Morador, String> dataDeEntrada;
     public static volatile ListAttribute<Morador, ContaDeAgua> contaDeAgua;
+    public static volatile SingularAttribute<Morador, Long> idSaida;
 
 }
