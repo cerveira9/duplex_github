@@ -28,6 +28,8 @@ public class GuiCasa implements Serializable{
     
     @EJB
     CasaDao daoCasa;
+    
+    @EJB
     MoradorDao daoMorador;
     
     private Morador morador;
