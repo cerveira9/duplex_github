@@ -6,37 +6,42 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cadastro Tarefas</title>
+        <h:outputStylesheet library="css" name="cadastro-morador-style.css" />
     </h:head>
-    <h:body>
-         <h:panelGrid columns="2">     
-            <p:outputLabel value="Casa Vinculada" />
-            <p:outputLabel value="#{guiCasa.casa.nomeCasa}" />
-        </h:panelGrid>
-        <h:form>
-            <p:growl showDetail="true" showSummary="true" />
-            <h:panelGrid columns="2">
-                <p:outputLabel value="Nome" />
-                <p:inputText value="#{guiCasa.morador.nome}" />
-                
-                <p:outputLabel value="CPF" />
-                <p:inputText value="#{guiCasa.morador.cpf}" />
-                
-                <p:outputLabel value="Data de entrada" />
-                <p:inputText value="#{guiCasa.morador.dataDeEntrada}" />
-                
-                <p:outputLabel value="Data de vencimento" />
-                <p:inputText value="#{guiCasa.morador.dataVencimento}" />
-                
-                <p:outputLabel value="Calção paga" />
-                <p:inputText value="#{guiCasa.morador.calcaoPaga}" />
-                
-                <p:outputLabel value="Descrição calção" />
-                <p:inputText value="#{guiCasa.morador.descricaoCalcao}" />
-                
-                
+    <div class="cadastro-morador-container">
+        <h:body>
+            <h:panelGrid class="panel-cadastro-morador" columns="2">     
+                <p:outputLabel value="DUPLEX" />
+                <br></br>
+                <p:outputLabel value="#{guiCasa.casa.nomeCasa}" />
             </h:panelGrid>
-            <br />
-            <p:commandButton value="Gravar" action="#{guiCasa.gravarMorador()}" ajax="false"/>
-        </h:form>
-    </h:body>
+            <h:form>
+                <p:growl showDetail="true" showSummary="true" />
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Nome" />
+                    <p:inputText value="#{guiCasa.morador.nome}" />
+
+                    <p:outputLabel value="CPF" />
+                    <p:inputMask value="#{guiCasa.morador.cpf}" mask="999.999.999-99" />
+
+                    <p:outputLabel value="Data de entrada" />
+                    <p:calendar id="button" value="#{guiCasa.morador.dataDeEntrada}" showOn="button" pattern="dd/mm/yyyy" />
+                   
+                    <p:outputLabel value="Data de vencimento" />
+                    <p:inputText value="#{guiCasa.morador.dataVencimento}" />
+
+                    <p:outputLabel value="Caução paga R$:" />
+                    <p:inputText value="#{guiCasa.morador.calcaoPaga}" />
+
+                    <p:outputLabel value="Descrição Caução" />
+                    <p:inputText value="#{guiCasa.morador.descricaoCalcao}" />
+
+
+                </h:panelGrid>
+                <br />
+                <p:commandButton value="Cadastrar" action="#{guiCasa.gravarMorador()}" ajax="false" icon="ui-icon-disk"/>
+            </h:form>
+
+        </h:body>
+    </div>
 </html>
