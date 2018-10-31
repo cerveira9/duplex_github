@@ -19,12 +19,11 @@
                 <h:dataTable id="tblCasas" value="#{guiCasa.casas}" var="c">
 
                     <h:column>
-                        <h:commandButton class="box" value="#{c.nomeCasa}" />
+                        <h:commandButton class="box" value="#{c.nomeCasa}" action="#{guiCasa.DetalheCasa(c)}" />
                     </h:column> 
 
 
-                    <p:column headerText="Opções" >
-                        <p:commandButton value="Detalhes" action="#{guiCasa.DetalheCasa(c)}" ajax="false"/>
+                    <p:column headerText="Opções" >                     
                         <p:commandButton value="Editar" action="#{guiCasa.editarCasa(c)}" ajax="false"/>
                         <p:commandButton value="Excluir" action="#{guiCasa.excluirCasa(c)}" ajax="false"/>
                     </p:column>

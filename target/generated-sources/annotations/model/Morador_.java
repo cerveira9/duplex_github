@@ -8,7 +8,7 @@ import model.Aluguel;
 import model.ContaDeAgua;
 import model.Saida;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-10-30T16:35:56")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-10-31T12:47:53")
 @StaticMetamodel(Morador.class)
 public class Morador_ { 
 
