@@ -28,6 +28,7 @@ public class Aluguel implements Serializable {
     private boolean pago;
     @Enumerated(EnumType.STRING)
     private MesReferente mesReferente;
+    private String anoReferente;
     private String dataPagamento;
             
     public Long getId() {
@@ -45,6 +46,16 @@ public class Aluguel implements Serializable {
     public void setMesReferente(MesReferente mesReferente) {
         this.mesReferente = mesReferente;
     }
+
+    public String getAnoReferente() {
+        return anoReferente;
+    }
+
+    public void setAnoReferente(String anoReferente) {
+        this.anoReferente = anoReferente;
+    }
+    
+    
 
     public Double getValor() {
         return valor;

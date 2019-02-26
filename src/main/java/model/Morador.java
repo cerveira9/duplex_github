@@ -7,6 +7,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,6 +40,7 @@ public class Morador implements Serializable {
     @OneToOne
     private Saida saida;
     private Long idSaida;
+    private Boolean ativo;
 
     public Long getId() {
         return id;
@@ -138,6 +140,17 @@ public class Morador implements Serializable {
     public void setContaDeAgua(List<ContaDeAgua> contaDeAgua) {
         this.contaDeAgua = contaDeAgua;
     }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+    
+    
             
     @Override
     public int hashCode() {

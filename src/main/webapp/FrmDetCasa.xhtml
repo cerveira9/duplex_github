@@ -15,11 +15,14 @@ and open the template in the editor.
     </head>
     <body>
         <h:form>
+            <p:commandButton value="voltar" action="#{guiCasa.voltar()}" ajax="false"/>
         <p:growl showDetail="true" showSummary="true" />
         <p:outputLabel value="#{guiCasa.casa.nomeCasa}" />
         <h:panelGrid columns="2">     
             <p:outputLabel value="Numero ENEL" />
-            <p:inputText value="#{guiCasa.casa.numeroCliente}" />
+            <p:outputLabel value="#{guiCasa.casa.numeroCliente}" />
+            
+           
         </h:panelGrid>
         <br />
         <p:commandButton value="Add Morador" action="#{guiCasa.addMorador()}" ajax="false"/>
@@ -36,6 +39,9 @@ and open the template in the editor.
                 </p:column>
                 <p:column headerText="Data de Vencimento">
                     <p:outputLabel value="#{m.dataVencimento}"/>
+                </p:column>
+                <p:column headerText="Detalhes">
+                    <h:commandButton value="Detalhes" action="#{guiCasa.detalheMorador(m)}" />
                 </p:column>
             </p:dataTable>
         </div>

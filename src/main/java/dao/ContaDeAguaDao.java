@@ -26,9 +26,14 @@ public class ContaDeAguaDao {
         Query q = em.createQuery("select ca from ContaDeAgua ca");
         return q.getResultList();
     }
+    
+    public List<ContaDeAgua> getList(Long id) {
+        Query q = em.createQuery("select ca from ContaDeAgua ca");
+        return q.getResultList();
+    }
 
-    public void gravar(ContaDeAgua object, boolean edit) {
-        if (edit == false) {
+    public void gravar(ContaDeAgua object, boolean i) {
+        if (i == true) {
             em.persist(object);
         } else {
             em.merge(object);
@@ -38,4 +43,5 @@ public class ContaDeAguaDao {
     public void excluir(ContaDeAgua object) {
         em.remove(em.merge(object));
     }
+
 }

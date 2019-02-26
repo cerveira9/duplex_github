@@ -29,6 +29,7 @@ public class MoradorDao {
         return q.getResultList();
     }
     
+    
     public List<Morador> getListCasa(Long id){
         String s = Objects.toString(id);
         Query q = em.createQuery("select m from Morador m inner join Casa c on m.idCasa = c." + s);

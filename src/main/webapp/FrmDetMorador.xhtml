@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Detalhe duplex</title>
+        <h:outputStylesheet library="css" name="index-style.css" />
+    </head>
+    <body>
+        <h:form>
+        
+        <p:growl showDetail="true" showSummary="true" />
+        <p:outputLabel value="#{guiCasa.morador.nome}" />
+        <h:panelGrid columns="2">     
+            <p:outputLabel value="CPF" />
+            <p:outputLabel value="#{guiCasa.morador.cpf}" />
+            <p:outputLabel value="Morador Ativo:" />
+            <h:selectBooleanCheckbox value="#{guiCasa.morador.ativo}" />           
+        </h:panelGrid>
+        <br />
+        
+        <h:panelGrid columns="2">
+            <f:facet name = "header">
+                <h:outputText value = "Detalhes"/>
+            </f:facet>
+            <p:outputLabel value="dataDeEntrada"/>
+            <p:inputText value="#{guiCasa.morador.dataDeEntrada}"/>
+            
+            <p:outputLabel value="dataVencimento"/>
+            <p:inputText value="#{guiCasa.morador.dataVencimento}"/>
+            
+            <p:outputLabel value="calcaoPaga"/>
+            <p:inputText value="#{guiCasa.morador.calcaoPaga}"/>
+            
+            <p:outputLabel value="descricaoCalcao"/>
+            <p:inputText value="#{guiCasa.morador.descricaoCalcao}"/>
+        </h:panelGrid>
+        
+        <h:commandButton value="Add Conta de agua" action="#{guiCasa.addContaAgua()}" />
+        <p:dataTable id="tblContaAgua" value="#{guiCasa.morador.contaDeAgua}" var="conta" >
+                <p:column headerText="Nome">
+                    <p:outputLabel value="#{conta.dataComunicacao}"/>
+                </p:column>
+                <p:column headerText="CPF">
+                    <p:outputLabel value="#{conta.dataPgto}"/>
+                </p:column>
+                <p:column headerText="Data de entrada">
+                    <p:outputLabel value="#{conta.leitura}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </body>
+</html>
